@@ -1,5 +1,7 @@
 package utils
 
+var db *gorm.DB
+
 func InitConfig() {
 	viper.SetConfigName("app")
 	viper.AddConfigPath("ginchat\\config")
@@ -12,7 +14,7 @@ func InitConfig() {
 }
 
 
-func INitMySQL() {
+func InitMySQL() {
 	db, err := gorm.Open(mysql.Open(""), &gorn.Config{})
 	if err != nil {
 		panic("failed to connect database")
